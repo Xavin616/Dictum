@@ -84,7 +84,7 @@ export default function Prompt() {
     <div className="w-full h-full">
         <div className="bg-white p-8 rounded-md md:w-3/4 m-auto">
             <div className="text-2xl font-extrabold text-center">
-                <h2 className="mt-3 mb-5 text-orange-500 text-md">Personal Statement</h2>
+                <h2 className="mt-3 mb-5 text-orange-500 text-md">Personal Statement Generator</h2>
             </div>
             <section className="w-3/5 m-auto sm:w-full">
                 <div className="mt-6">
