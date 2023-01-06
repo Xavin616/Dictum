@@ -1,11 +1,13 @@
 import { Textarea, Button } from '@mantine/core'
+import { showNotification, updateNotification } from '@mantine/notifications';
+import { IconCheck } from '@tabler/icons';
 import Router from 'next/router';
 import React, { useState } from 'react';
 import useStore from '../store/store';
 
 
 export default function Letter() {
-    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nLocation: Dragonstone Island, Westeros")
+    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nCompany Location: Dragonstone Island, Westeros")
     const [isLoading, setIsLoading] = useState(false)
     const [generatedOutput, setGeneratedOutput] = useState("")
     const addOutput = useStore(state => state.newOutput)
@@ -41,8 +43,14 @@ export default function Letter() {
         const data = await response.json();
         const { output } = data;
 
-        setGeneratedOutput(`${output.text}`)
-        addOutput(output.text)
+        setGeneratedOutput(`${output.text}`);
+        addOutput(output.text);
+        updateNotification({
+            id: 'loading-data',
+            title: 'Your cover letter is ready!',
+            icon: <IconCheck/>,
+            autoClose: 2000
+        });
         Router.push({
             pathname: '/editor'
         })
@@ -69,7 +77,24 @@ export default function Letter() {
                     </div>
 
                     <div className="my-4 w-full text-center">
-                        <Button className="w-full" radius={'md'} size="lg" onClick={() => handleSubmit()} loading={isLoading}>Generate</Button>
+                        <Button 
+                            className="w-full" 
+                            radius={'md'} 
+                            size="lg" 
+                            onClick={() => { 
+                                showNotification({
+                                    id: 'loading-data',
+                                    title: "This might take a while..",
+                                    message: "Please wait while the AI is creating your cover letter",
+                                    loading: true,
+                                    autoClose: false,
+                                    disallowClose: true
+                                }); 
+                                handleSubmit(); }} 
+                            loading={isLoading}
+                        >
+                            Generate
+                        </Button>
                     </div>
                 </section>
             </div>

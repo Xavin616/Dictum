@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration)
 
 const letterBasePrompt = 
 `
-Generate a long and detailed cover letter with the recipient's address on the top right hand corner of the page and a title in bold after the salutation. Use the information provided below. Wrap the entire letter in the html <div></div> tag and wrap each paragraph in a html <p></p> tag.
+Generate a long and well-detailed cover letter with the recipient's address on the top right hand corner of the page and a title in bold after the salutation. Use the information provided below. Wrap the entire letter in the html <div></div> tag and wrap each paragraph in a html <p></p> tag.
 `
 
 const generateLetter = async (req, res) => {
@@ -19,7 +19,7 @@ const generateLetter = async (req, res) => {
     model: "text-davinci-003",
     prompt:`${letterBasePrompt}${req.body.completeLetterPrompt}`,
     temperature: 0.7,
-    max_tokens: 50,
+    max_tokens: 450,
   });
 
   const letterOutput = letterCompletion.data.choices.pop();

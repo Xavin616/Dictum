@@ -2,6 +2,7 @@ import { TextInput, MultiSelect, Button } from "@mantine/core";
 import { useEffect, useState } from "react";
 import useStore from "../store/store";
 import Router from "next/router";
+import { showNotification, updateNotification } from '@mantine/notifications';
 
 export default function Prompt() {
     const [intro, setIntro] = useState({username: null, course: null, school: null,})
@@ -62,8 +63,14 @@ export default function Prompt() {
         const { output } = data;
         // console.log("OpenAI replied...", output.text)
     
-        setApiOutput(`${output.text}`)
-        addOutput(output.text)
+        setApiOutput(`${output.text}`);
+        addOutput(output.text);
+        updateNotification({
+            id: 'loading-data',
+            title: 'Your cover letter is ready!',
+            icon: <IconCheck/>,
+            autoClose: 2000
+        });
         // // console.log(output.text)
         Router.push({
             pathname: '/editor',
@@ -164,7 +171,26 @@ export default function Prompt() {
                     </div>
                 </div>
                 <div className="my-7 w-full text-center">
-                    <Button className="w-full" size="lg" radius={'md'} onClick={() => { setLoading(true); callGenerateEndpoint()}} loading={isload} >Generate</Button>
+                    <Button 
+                        className="w-full" 
+                        size="lg" 
+                        radius={'md'} 
+                        onClick={() => { 
+                            setLoading(true);
+                            showNotification({
+                                id: 'loading-data',
+                                title: "This might take a while..",
+                                message: "Please wait while the AI is creating your cover letter",
+                                loading: true,
+                                autoClose: false,
+                                disallowClose: true
+                            });  
+                            callGenerateEndpoint()
+                        }} 
+                        loading={isload}
+                        >
+                            Generate
+                        </Button>
                 </div>
             </section>
         </div>
