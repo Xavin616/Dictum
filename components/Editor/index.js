@@ -1,5 +1,5 @@
 import { RichTextEditor, Link } from "@mantine/tiptap";
-import { useEditor, EditorContent } from "@tiptap/react";
+import { useEditor } from "@tiptap/react";
 import Highlight from '@tiptap/extension-highlight';
 import StarterKit from "@tiptap/starter-kit";
 import Underline from '@tiptap/extension-underline';
@@ -9,16 +9,16 @@ import SubScript from '@tiptap/extension-subscript';
 import { Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import useStore from "../../store/store";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+import { showNotification } from "@mantine/notifications";
+import { IconCheck } from "@tabler/icons";
 
-export default function Editor() {
+export default function Editor({ editorRef }) {
   const getOutput = useStore((state) => state.output)
-
-  const content = getOutput
+  const [editorContent, setEditorContent] = useState(getOutput)
   //console.log(getOutput)
 
-   const editor = useEditor({
+  const editor = useEditor({
     extensions: [
         StarterKit,
         Underline,
@@ -28,13 +28,27 @@ export default function Editor() {
         Highlight,
         TextAlign.configure({ types: ['heading', 'paragraph'] })
     ],
-    content,
-   })
-    
-   const matches = useMediaQuery('(max-width: 600px)');
+    content: ``,
+    editable: true,
+    onUpdate({ editor }) {
+      if (getOutput !== editor.getHTML()) {
+        setEditorContent(editor.getHTML());
+      } 
+    }
+  }, [])
+
+  console.log(editorContent)
+
+  useEffect(() => {
+    editor && editor.commands.setContent(getOutput)
+  }, [editor, getOutput])   
+  // editor.commands.setContent('<p>Yes!</p>')
+
+  const matches = useMediaQuery('(max-width: 600px)');
 
   return (
     <RichTextEditor 
+      ref={editorRef}
       editor={editor}
       withTypographyStyles={false}
       styles={{
@@ -43,14 +57,14 @@ export default function Editor() {
           margin: '-16px -16px'
         },
         toolbar: {
-          marginBottom: '2rem',
+          marginBottom: '1rem',
           justifyContent: 'center'
         },
         content: {
-          padding: matches ? '15px 30px' : '30px 68px',
+          padding: matches ? '15px 30px' : '25px 70px 70px 70px',
           width: matches ? '90%' : '70%',
-          minHeight: '95vh',
-          margin: '0rem auto 1rem auto',
+          minHeight: '100vh',
+          margin: '0rem auto 3rem auto',
           border: 'none'
         }
       }}
@@ -95,12 +109,24 @@ export default function Editor() {
         </RichTextEditor.ControlsGroup>
 
         <RichTextEditor.ControlsGroup>
-          <Button className="mr-1" color="dark" size="xs">Save Draft</Button>
+          <Button className="mr-1" color="dark" size="xs"
+            onClick={() => {
+              navigator.clipboard.writeText(editorContent);
+              showNotification({
+                title: "Copied to clipboard",
+                icon: <IconCheck />,
+                autoClose: 2500
+              })
+            }}
+          >
+            Copy to Clipboard
+          </Button>
+
           <Button className="mr-1" size="xs">Save as PDF</Button>
         </RichTextEditor.ControlsGroup>
       </RichTextEditor.Toolbar>
 
-      <RichTextEditor.Content className="h-full" />
+      <RichTextEditor.Content/>
     </RichTextEditor>
   )
 }

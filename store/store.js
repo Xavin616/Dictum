@@ -7,7 +7,7 @@ const useStore = create(
             output: null,
             newOutput: (input) => {
                 set((state) => ({
-                    output: input
+                    output: `<p>${input}</p>`.replace('\n', '<br>')
                 }))
             }
         })
