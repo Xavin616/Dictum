@@ -1,5 +1,5 @@
 import { TextInput, MultiSelect, Button } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useStore from "../store/store";
 import Router from "next/router";
 import { showNotification, updateNotification } from '@mantine/notifications';

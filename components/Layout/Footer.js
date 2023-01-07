@@ -37,7 +37,7 @@ export function FooterSocial() {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <h2 className={`${pacifico.className} my-0 ml-5 text-orange-500 text-3xl`}>dictum</h2>
+        <h2 className={`${pacifico.className} my-0 ml-5 text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 text-3xl`}>dictum</h2>
         <Group spacing={0} className={classes.links} position="right" noWrap>
           <ActionIcon size="lg">
             <IconBrandTwitter size={18} stroke={1.5} />

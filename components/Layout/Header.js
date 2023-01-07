@@ -154,7 +154,7 @@ import { Pacifico } from '@next/font/google'
         <Header height={60} px="md">
           <Group position="apart" sx={{ height: '100%' }}>
             <Link passHref href={'/'} className={'no-underline'}>
-              <h2 className={`${pacifico.className} my-0 ml-5 text-orange-500 text-3xl outline-none no-underline`}>dictum</h2>
+              <h2 className={`${pacifico.className} my-0 ml-5 text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 text-3xl outline-none no-underline`}>dictum</h2>
             </Link>
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
               <Link passHref href="/" className={classes.link}>
