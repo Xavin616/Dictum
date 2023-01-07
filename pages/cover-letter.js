@@ -7,7 +7,7 @@ import useStore from '../store/store';
 
 
 export default function Letter() {
-    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nCompany Location: Dragonstone Island, Westeros")
+    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nCompany Name: Westeros ")
     const [isLoading, setIsLoading] = useState(false)
     const [generatedOutput, setGeneratedOutput] = useState("")
     const addOutput = useStore(state => state.newOutput)
