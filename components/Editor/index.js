@@ -37,8 +37,6 @@ export default function Editor({ editorRef }) {
     }
   }, [])
 
-  console.log(editorContent)
-
   useEffect(() => {
     editor && editor.commands.setContent(getOutput)
   }, [editor, getOutput])   
