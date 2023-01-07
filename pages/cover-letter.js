@@ -7,7 +7,7 @@ import useStore from '../store/store';
 
 
 export default function Letter() {
-    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nCompany Name: Westeros ")
+    const [info, setInfo] = useState("Name: Jon Snow \nJob Role: King of the North \nRecipient: Daenerys Targaryen \nCompany Name: Westeros \nOther information:")
     const [isLoading, setIsLoading] = useState(false)
     const [generatedOutput, setGeneratedOutput] = useState("")
     const addOutput = useStore(state => state.newOutput)
@@ -59,11 +59,11 @@ export default function Letter() {
 
     return (
         <div className="w-full h-full">
-            <div className="bg-white p-8 rounded-md md:w-3/4 m-auto">
+            <div className="bg-white px-2 py-6 rounded-md md:w-3/4 m-auto p-8">
                 <div className="text-xl font-extrabold text-center">
                     <h2 className="mt-3 mb-5 text-orange-500 text-md">Cover Letter Generator</h2>
                 </div>
-                <section className="w-3/5 m-auto sm:w-3/4">
+                <section className="w-full m-auto md:w-4/5">
                     <div className="mt-8 w-full m-auto">
                         <Textarea
                             placeholder='Enter information you want added to your cover letter, e.g &#10;Your name, Desired Job Role, Other information'

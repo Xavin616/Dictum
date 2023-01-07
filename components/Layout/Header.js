@@ -199,7 +199,7 @@ import { Pacifico } from '@next/font/google'
             <Link passHref href="/statement" className={classes.link}>
               Personal Statement
             </Link>
-            <Link passHref href="/cover-letters" className={classes.link}>
+            <Link passHref href="/cover-letter" className={classes.link}>
               Cover Letters
             </Link>
   
