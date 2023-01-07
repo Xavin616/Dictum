@@ -153,26 +153,26 @@ import { Pacifico } from '@next/font/google'
       <Box>
         <Header height={60} px="md">
           <Group position="apart" sx={{ height: '100%' }}>
-            <Link href={'/'} className={'no-underline'}>
+            <Link passHref href={'/'} className={'no-underline'}>
               <h2 className={`${pacifico.className} my-0 ml-5 text-orange-500 text-3xl outline-none no-underline`}>dictum</h2>
             </Link>
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
-              <Link href="/" className={classes.link}>
+              <Link passHref href="/" className={classes.link}>
                 Home
               </Link>
-              <Link href="/statement" className={classes.link}>
+              <Link passHref href="/statement" className={classes.link}>
                 Personal Statement
               </Link>
-              <Link href="/cover-letter" className={classes.link}>
+              <Link passHref href="/cover-letter" className={classes.link}>
                 Cover Letters
               </Link>
             </Group>
   
             <Group className={classes.hiddenMobile}>
-              <Link href={'/'}>
+              <Link passHref href={'/'}>
                 <Button variant="default">Log in</Button>
               </Link>
-              <Link href={'/statement'}>
+              <Link passHref href={'/statement'}>
                 <Button >Sign up</Button>
               </Link>
             </Group>
@@ -193,13 +193,13 @@ import { Pacifico } from '@next/font/google'
           <ScrollArea sx={{ height: 'calc(100vh - 60px)' }} mx="-md">
             <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
   
-            <Link href="/" className={classes.link}>
+            <Link passHref href="/" className={classes.link}>
               Home
             </Link>
-            <Link href="/statement" className={classes.link}>
+            <Link passHref href="/statement" className={classes.link}>
               Personal Statement
             </Link>
-            <Link href="/cover-letters" className={classes.link}>
+            <Link passHref href="/cover-letters" className={classes.link}>
               Cover Letters
             </Link>
   

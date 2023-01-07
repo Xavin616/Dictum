@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useStore from "../store/store";
 import Router from "next/router";
 import { showNotification, updateNotification } from '@mantine/notifications';
+import { IconCheck } from "@tabler/icons";
 
 export default function Prompt() {
     const [intro, setIntro] = useState({username: null, course: null, school: null,})
