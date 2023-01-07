@@ -120,7 +120,7 @@ export default function Editor({ editorRef }) {
             Copy to Clipboard
           </Button>
 
-          <Button className="mr-1" size="xs">Save as PDF</Button>
+          <Button disabled className="mr-1" size="xs">Save as PDF</Button>
         </RichTextEditor.ControlsGroup>
       </RichTextEditor.Toolbar>
 
