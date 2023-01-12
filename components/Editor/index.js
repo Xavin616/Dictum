@@ -52,7 +52,7 @@ export default function Editor({ editorRef }) {
       styles={{
         root: {
           border: 'none',
-          margin: '-16px -16px'
+          margin: '-16px -16px',
         },
         toolbar: {
           marginBottom: '1rem',
@@ -61,7 +61,7 @@ export default function Editor({ editorRef }) {
         content: {
           padding: matches ? '15px 30px' : '25px 70px 70px 70px',
           width: matches ? '90%' : '70%',
-          minHeight: '100vh',
+          minHeight: '25.7cm',
           margin: '0rem auto 3rem auto',
           border: 'none'
         }

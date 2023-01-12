@@ -13,10 +13,13 @@ import {
 import { FooterSocial } from './Footer';
 import { HeaderMegaMenu } from './Header';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 export default function AppShellDemo({ children }) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const router = useRouter()
+  console.log(router.asPath)
   return (
     <>
       <Head>
@@ -34,7 +37,8 @@ export default function AppShellDemo({ children }) {
         styles={{
           main: {
             border: 'none',
-            background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.white,
+            paddingBottom: '100px',
+            background: router.asPath === '/editor' ? theme.colors.gray[1] : theme.colors.white,
           },
         }}
         footer={

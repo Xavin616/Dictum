@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration)
 
 const letterBasePrompt = 
 `
-Generate a long and well-detailed cover letter with the recipient's address on the top right hand corner of the page and a title in bold after the salutation. Use the information provided below. Wrap the entire letter in the html <div></div> tag and wrap each paragraph in a html <p></p> tag.
+Generate a long and well-detailed cover letter with the recipient's address on the top right hand corner of the page and a title in bold after the salutation. Use the information provided below. Wrap each paragraph in a html <p></p> tag.
 `
 
 const generateLetter = async (req, res) => {
