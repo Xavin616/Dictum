@@ -6,7 +6,7 @@ import { showNotification, updateNotification } from '@mantine/notifications';
 import { IconCheck } from "@tabler/icons";
 
 export default function Prompt() {
-    const [intro, setIntro] = useState({username: null, course: null, school: null,})
+    const [intro, setIntro] = useState({username: '', course: '', school: '',})
     const [edudata, setEduData] = useState([]);
     const [skills, setSkills] = useState([]);
     const [accom, setAccom] = useState([]);
@@ -198,3 +198,9 @@ export default function Prompt() {
     </div>
   )
 }
+
+export async function getServerSideProps(context) {
+    return {
+      props: {}, // will be passed to the page component as props
+    }
+  }
