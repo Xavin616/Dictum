@@ -166,6 +166,9 @@ import { Pacifico } from '@next/font/google'
               <Link passHref href="/cover-letter" className={classes.link}>
                 Cover Letters
               </Link>
+              <Link passHref href="/essay" className={classes.link}>
+                Essays
+              </Link>
             </Group>
   
             <Group className={classes.hiddenMobile}>
@@ -201,6 +204,9 @@ import { Pacifico } from '@next/font/google'
             </Link>
             <Link passHref href="/cover-letter" className={classes.link}>
               Cover Letters
+            </Link>
+            <Link passHref href="/essay" className={classes.link}>
+              Essays
             </Link>
   
             <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />

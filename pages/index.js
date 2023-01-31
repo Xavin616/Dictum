@@ -29,6 +29,7 @@ export default function Home() {
         <div className='flex flex-wrap justify-evenly space-x-0'>
           <Button className='mt-3 md:mt-3' onClick={() => linkTo('/cover-letter')} radius={'md'} size='xl'>Cover Letters</Button>
           <Button className='mt-3 md:mt-3' onClick={() => linkTo('/statement')} radius={'md'} size='xl'>Personal Statement</Button>
+          <Button className='mt-3 md:mt-3' onClick={() => linkTo('/essay')} radius={'md'} size='xl'>Essays</Button>
           <Button className='mt-3 md:mt-3' disabled radius={'md'} size='xl'>Our AI Powered Editor</Button>
         </div>
       </div>

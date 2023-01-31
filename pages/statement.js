@@ -181,7 +181,7 @@ export default function Prompt() {
                             showNotification({
                                 id: 'loading-data',
                                 title: "This might take a while..",
-                                message: "Please wait while the AI is creating your cover letter",
+                                message: "Please wait while the AI is creating your personal statement",
                                 loading: true,
                                 autoClose: false,
                                 disallowClose: true

@@ -59,7 +59,7 @@ export default function Editor({ editorRef }) {
           justifyContent: 'center'
         },
         content: {
-          padding: matches ? '15px 30px' : '25px 70px 70px 70px',
+          padding: matches ? '15px 30px' : '35px 70px 70px 70px',
           width: matches ? '90%' : '70%',
           minHeight: '25.7cm',
           margin: '0rem auto 3rem auto',

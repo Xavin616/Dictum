@@ -1,12 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { Configuration, OpenAIApi } from "openai";
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration)
-
+import openai from "./openaiConfig";
 
 const letterBasePrompt = 
 `
@@ -19,7 +11,7 @@ const generateLetter = async (req, res) => {
     model: "text-davinci-003",
     prompt:`${letterBasePrompt}${req.body.completeLetterPrompt}`,
     temperature: 0.7,
-    max_tokens: 450,
+    max_tokens: 800,
   });
 
   const letterOutput = letterCompletion.data.choices.pop();
