@@ -55,15 +55,16 @@ export default function Editor({ editorRef }) {
           margin: '-16px -16px',
         },
         toolbar: {
-          marginBottom: '1rem',
+          marginBottom: '0.7rem',
           justifyContent: 'center'
         },
         content: {
-          padding: matches ? '15px 30px' : '35px 70px 70px 70px',
-          width: matches ? '90%' : '70%',
+          padding: matches ? '7.5px 5px' : '35px 70px 70px 70px',
+          width: matches ? '95%' : '70%',
           minHeight: '25.7cm',
           margin: '0rem auto 3rem auto',
-          border: 'none'
+          border: 'none',
+          fontSize: matches ? '0.8rem' : '1rem'
         }
       }}
     >
