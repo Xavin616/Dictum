@@ -30,6 +30,7 @@ import {
   } from '@tabler/icons';
 import Link from 'next/link';
 import { Pacifico } from '@next/font/google' 
+import { useMediaQuery } from "@mantine/hooks";
 
   const useStyles = createStyles((theme) => ({
     link: {
@@ -125,12 +126,26 @@ import { Pacifico } from '@next/font/google'
   ];
 
   const pacifico = Pacifico({ subsets:['latin'], weight: "400" })
-  
+
+
   export function HeaderMegaMenu() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
     const { classes, theme } = useStyles();
+
+    const matches = useMediaQuery('(max-width: 600px)');
   
+
+    const textsize = () => {
+      if (matches) {
+        return ('text-2xl') 
+       } else { 
+        return ('text-3xl')
+      } 
+    }
+  
+    console.log(textsize())
+
     const links = mockdata.map((item) => (
       <UnstyledButton className={classes.subLink} key={item.title}>
         <Group noWrap align="flex-start">
@@ -154,7 +169,7 @@ import { Pacifico } from '@next/font/google'
         <Header height={60} px="md">
           <Group position="apart" sx={{ height: '100%' }}>
             <Link passHref href={'/'} className={'no-underline'}>
-              <h2 className={`${pacifico.className} my-0 ml-5 text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 text-3xl outline-none no-underline`}>dictum</h2>
+              <h2 className={`${pacifico.className} my-0 ml-5 text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 ${textsize()} outline-none no-underline`}>dictum</h2>
             </Link>
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
               <Link passHref href="/" className={classes.link}>
